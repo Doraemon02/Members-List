@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常見問題 | Members List Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        discord: {
+                            DEFAULT: '#5865F2',
+                            hover: '#4752C4',
+                            dark: '#36393f',
+                            darker: '#2f3136',
+                            darkest: '#202225'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-discord-darkest text-white font-sans antialiased">
+
+    <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Members List Bot Logo" class="w-10 h-10 rounded-full object-cover">
+                    <span class="font-bold text-xl tracking-tight">Members List Bot</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html#features" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">功能介紹</a>
+                        <a href="commands.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">指令列表</a>
+                        <a href="faq.html" class="text-discord transition-colors px-3 py-2 rounded-md text-sm font-bold">常見問題</a>
+                        <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="bg-discord hover:bg-discord-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-discord/30">
+                            邀請機器人
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-discord-darker border-b border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
+                <a href="commands.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">指令列表</a>
+                <a href="faq.html" class="block bg-discord-dark text-white px-3 py-2 rounded-md text-base font-bold">常見問題</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-4 px-3 py-2 rounded-md text-base font-medium">立即邀請機器人</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 bg-discord-darker border-b border-gray-800 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-discord/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-lg animate-fade-in-up">
+                <span class="text-discord">常見</span>問題
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                使用 Members List Bot 遇到的問題
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 bg-discord-darkest">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-4">
+                <details class="group bg-discord-darker border border-gray-700 rounded-xl p-5 hover:border-discord/50 transition-colors open:bg-discord-dark">
+                    <summary class="cursor-pointer list-none font-bold text-lg flex items-center justify-between gap-4">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-discord"></i>
+                            Members List Bot 是付費的嗎？
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-discord transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-400 leading-relaxed text-sm pl-9">
+                        完全免費。目前所有功能（名單管理、自動身分組、備份、歷史紀錄、自動禁言系統）皆不收取任何費用。
+                    </p>
+                </details>
+
+                <details class="group bg-discord-darker border border-gray-700 rounded-xl p-5 hover:border-discord/50 transition-colors open:bg-discord-dark">
+                    <summary class="cursor-pointer list-none font-bold text-lg flex items-center justify-between gap-4">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-discord"></i>
+                            如何邀請機器人到我的 Discord 伺服器？
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-discord transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-400 leading-relaxed text-sm pl-9">
+                        點擊網站頂端的「邀請機器人」按鈕，選擇你的伺服器後給予管理者權限即可開始使用。
+                    </p>
+                </details>
+
+                <details class="group bg-discord-darker border border-gray-700 rounded-xl p-5 hover:border-discord/50 transition-colors open:bg-discord-dark">
+                    <summary class="cursor-pointer list-none font-bold text-lg flex items-center justify-between gap-4">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-discord"></i>
+                            為什麼有些指令其他人不能用？
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-discord transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-400 leading-relaxed text-sm pl-9">
+                        所有名單相關指令 (除/幫助) 預設僅伺服器有管理者權限者及群主可使用。若要開放權限給特定成員或身分組，可使用 <span class="text-discord font-mono">/設定權限</span> 指令做精細的權限分配。
+                    </p>
+                </details>
+
+                <details class="group bg-discord-darker border border-gray-700 rounded-xl p-5 hover:border-discord/50 transition-colors open:bg-discord-dark">
+                    <summary class="cursor-pointer list-none font-bold text-lg flex items-center justify-between gap-4">
+                        <span class="flex items-center gap-3">
+                            <i class="fa-solid fa-circle-question text-discord"></i>
+                            機器人突然沒回應怎麼辦？
+                        </span>
+                        <i class="fa-solid fa-chevron-down text-discord transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-400 leading-relaxed text-sm pl-9">
+                        請先確認本網頁首頁的「API 服務狀態」是否顯示「整體狀態：正常運行」；若顯示不可用，代表機器人遇上問題正在修，稍等幾分鐘將盡快恢復。
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-discord-darker py-10 border-t border-gray-800 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3 px-3 py-2">
+                <img src="images/logo.png" alt="Members List Bot Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-transparent transition-all">
+                <span class="font-bold text-lg transition-colors">Members List Bot</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-gray-500 text-sm">
+                    &copy; 2026 Members List | Discord Bot
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-brands fa-discord text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px) scale(0.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>

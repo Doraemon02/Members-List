@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台管理登入 | Members List Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        discord: {
+                            DEFAULT: '#5865F2',
+                            hover: '#4752C4',
+                            dark: '#36393f',
+                            darker: '#2f3136',
+                            darkest: '#202225'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-discord-darkest text-white font-sans antialiased min-h-screen flex flex-col">
+
+    <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Members List Bot Logo" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                    <span class="font-bold text-xl tracking-tight">Members List Bot</span>
+                </div>
+                <div class="flex items-center gap-4 flex-wrap justify-end">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-house mr-1"></i> 返回首頁
+                    </a>
+                    <a href="commands.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-terminal mr-1"></i> 指令列表
+                    </a>
+                    <a href="faq.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-circle-question mr-1"></i> 常見問題
+                    </a>
+                    <button id="logout-btn" class="hidden bg-red-500/20 text-red-400 hover:bg-red-500/30 hover:text-red-300 border border-red-500/30 transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i> 登出
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-1 pt-24 pb-16">
+
+        <div id="prompt-view" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            <div class="bg-discord-darker p-10 md:p-14 rounded-3xl border border-gray-700 shadow-2xl text-center">
+                <div class="w-24 h-24 bg-discord/15 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-discord/20">
+                    <i class="fa-solid fa-shield-halved text-4xl text-discord"></i>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-3">後台管理登入</h1>
+                <p class="text-gray-400 leading-relaxed text-base md:text-lg max-w-xl mx-auto mb-8">
+                    此區域僅供
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 mx-1 rounded-md bg-discord/10 border border-discord/30 text-discord font-bold align-middle">
+                        <span class="inline-block w-5 h-5 rounded-full overflow-hidden align-middle"><img src="images/logo.png" alt="logo" class="w-full h-full"></span>
+                        Members List Bot
+                    </span>
+                    管理員使用，用於檢視伺服器狀態、機器人運行數據與相關設定。
+                </p>
+                <button id="prompt-login-btn" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-discord hover:bg-discord-hover text-white font-bold text-base transition-all shadow-lg shadow-discord/30">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>前往登入</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="dashboard-view" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold mb-2">
+                    <i class="fa-solid fa-chart-line text-discord mr-2"></i> 機器人數據總覽
+                </h1>
+                <p class="text-gray-400">即時監控機器人的運行狀態與伺服器概況</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-discord-darker p-6 rounded-2xl border border-gray-700 hover:border-discord/50 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-discord/20 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-server text-xl text-discord"></i>
+                        </div>
+                        <span class="text-xs text-green-400 bg-green-500/10 border border-green-500/30 px-2 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-circle-check mr-1 text-[10px]"></i>在線
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-1">機器人已加入的伺服器</div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="stat-guilds" class="text-4xl font-extrabold text-white">--</span>
+                        <span class="text-lg text-gray-400">台</span>
+                    </div>
+                </div>
+
+                <div class="bg-discord-darker p-6 rounded-2xl border border-gray-700 hover:border-discord/50 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-users text-xl text-green-400"></i>
+                        </div>
+                        <span class="text-xs text-green-400 bg-green-500/10 border border-green-500/30 px-2 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-chart-simple mr-1 text-[10px]"></i>累計
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-1">總成員數</div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="stat-members" class="text-4xl font-extrabold text-white">--</span>
+                        <span class="text-lg text-gray-400">人</span>
+                    </div>
+                </div>
+
+                <div class="bg-discord-darker p-6 rounded-2xl border border-gray-700 hover:border-discord/50 transition-colors">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-yellow-500/20 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-signal text-xl text-yellow-400"></i>
+                        </div>
+                        <span id="ping-badge" class="text-xs text-green-400 bg-green-500/10 border border-green-500/30 px-2 py-1 rounded-full font-medium">
+                            <i class="fa-solid fa-bolt mr-1 text-[10px]"></i>快速
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-400 mb-1">機器人延遲</div>
+                    <div class="flex items-baseline gap-2">
+                        <span id="stat-ping" class="text-4xl font-extrabold text-white">--</span>
+                        <span class="text-lg text-gray-400">ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-discord-darker rounded-2xl border border-gray-700 overflow-hidden">
+                <div class="p-6 border-b border-gray-700 flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                        <h2 class="text-xl font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-discord"></i>
+                            伺服器列表
+                        </h2>
+                        <p class="text-gray-400 text-sm mt-1">查看管理的所有伺服器與其成員數，可直接前往邀請連結</p>
+                    </div>
+                    <button id="refresh-btn" class="bg-discord/20 text-discord hover:bg-discord/30 border border-discord/30 transition-colors px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-rotate"></i> 重新整理
+                    </button>
+                </div>
+                <div id="guilds-container" class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl mb-3"></i>
+                        <p>正在載入伺服器資料...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-discord-darker py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3 px-3 py-2">
+                <img src="images/logo.png" alt="Members List Bot Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-transparent transition-all">
+                <span class="font-bold text-lg transition-colors">Members List Bot</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-gray-500 text-sm">
+                    &copy; 2026 Members List | Discord Bot
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-brands fa-discord text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="login-modal" class="fixed inset-0 z-[100] hidden items-center justify-center px-4 sm:px-6">
+        <div id="login-modal-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div class="relative w-full max-w-md bg-discord-darker rounded-2xl border border-gray-700 shadow-2xl overflow-hidden animate-[fadeIn_0.18s_ease-out]">
+            <div class="px-8 py-6 border-b border-gray-700 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-discord/15 rounded-full flex items-center justify-center ring-2 ring-discord/30">
+                        <i class="fa-solid fa-lock text-discord"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold">管理員登入</h3>
+                        <p class="text-xs text-gray-400">請輸入您的管理員帳號與密碼</p>
+                    </div>
+                </div>
+                <button id="login-modal-close" class="text-gray-400 hover:text-white w-9 h-9 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form id="modal-login-form" class="px-8 py-7 space-y-5">
+                <div>
+                    <label for="modal-username" class="block text-sm font-medium text-gray-300 mb-2">帳號</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                            <i class="fa-solid fa-user"></i>
+                        </span>
+                        <input type="text" id="modal-username" autocomplete="username" required
+                            class="w-full bg-discord-dark border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-colors"
+                            placeholder="請輸入帳號">
+                    </div>
+                </div>
+                <div>
+                    <label for="modal-password" class="block text-sm font-medium text-gray-300 mb-2">密碼</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                            <i class="fa-solid fa-key"></i>
+                        </span>
+                        <input type="password" id="modal-password" autocomplete="current-password" required
+                            class="w-full bg-discord-dark border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-discord focus:ring-1 focus:ring-discord transition-colors"
+                            placeholder="請輸入密碼">
+                    </div>
+                </div>
+                <div id="modal-login-error" class="hidden bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-2 rounded-lg text-sm">
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i>
+                    <span>帳號或密碼錯誤，請再試一次</span>
+                </div>
+                <button type="submit"
+                    class="w-full bg-discord hover:bg-discord-hover text-white font-bold py-3 rounded-lg transition-all transform hover:scale-[1.01] shadow-lg shadow-discord/20 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i> 登入後台
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px) scale(0.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+
+    <script>
+        (function () {
+            const ADMIN_USER = 'Bohan0808';
+            const ADMIN_PASS = '808080';
+            const SESSION_KEY = 'mlb_admin_session';
+
+            const promptView = document.getElementById('prompt-view');
+            const dashboardView = document.getElementById('dashboard-view');
+            const logoutBtn = document.getElementById('logout-btn');
+            const refreshBtn = document.getElementById('refresh-btn');
+            const promptLoginBtn = document.getElementById('prompt-login-btn');
+            const loginModal = document.getElementById('login-modal');
+            const loginModalBackdrop = document.getElementById('login-modal-backdrop');
+            const loginModalClose = document.getElementById('login-modal-close');
+            const modalLoginForm = document.getElementById('modal-login-form');
+            const modalLoginError = document.getElementById('modal-login-error');
+            const modalUsernameInput = document.getElementById('modal-username');
+            const modalPasswordInput = document.getElementById('modal-password');
+
+            function showView(view) {
+                if (view === 'dashboard') {
+                    promptView.classList.add('hidden');
+                    dashboardView.classList.remove('hidden');
+                    logoutBtn.classList.remove('hidden');
+                    loadDashboard();
+                } else {
+                    dashboardView.classList.add('hidden');
+                    promptView.classList.remove('hidden');
+                    logoutBtn.classList.add('hidden');
+                }
+            }
+
+            function isLoggedIn() {
+                try {
+                    const session = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
+                    if (session && session.token === 'mlb_admin_ok' && session.expiresAt > Date.now()) {
+                        return true;
+                    }
+                } catch (e) {}
+                return false;
+            }
+
+            function setLoggedIn() {
+                const expiresAt = Date.now() + (1000 * 60 * 60 * 8);
+                localStorage.setItem(SESSION_KEY, JSON.stringify({ token: 'mlb_admin_ok', expiresAt }));
+            }
+
+            function logout() {
+                localStorage.removeItem(SESSION_KEY);
+                showView('prompt');
+            }
+
+            function openLoginModal() {
+                if (isLoggedIn()) {
+                    showView('dashboard');
+                    return;
+                }
+                loginModal.classList.remove('hidden');
+                loginModal.classList.add('flex');
+                modalLoginError.classList.add('hidden');
+                setTimeout(() => {
+                    try { modalUsernameInput.focus(); } catch (_) {}
+                }, 60);
+            }
+
+            function closeLoginModal() {
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+                modalLoginForm.reset();
+                modalLoginError.classList.add('hidden');
+            }
+
+            if (promptLoginBtn) {
+                promptLoginBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (isLoggedIn()) {
+                        showView('dashboard');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    openLoginModal();
+                });
+            }
+
+            loginModalBackdrop.addEventListener('click', closeLoginModal);
+            loginModalClose.addEventListener('click', closeLoginModal);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !loginModal.classList.contains('hidden')) {
+                    closeLoginModal();
+                }
+            });
+
+            modalLoginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const u = modalUsernameInput.value.trim();
+                const p = modalPasswordInput.value;
+                if (u === ADMIN_USER && p === ADMIN_PASS) {
+                    modalLoginError.classList.add('hidden');
+                    setLoggedIn();
+                    closeLoginModal();
+                    showView('dashboard');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    modalLoginError.classList.remove('hidden');
+                    try { modalPasswordInput.focus(); modalPasswordInput.select(); } catch(_) {}
+                }
+            });
+
+            logoutBtn.addEventListener('click', logout);
+            refreshBtn.addEventListener('click', loadDashboard);
+
+            function formatNumber(n) {
+                if (n == null || isNaN(n)) return '--';
+                return Number(n).toLocaleString('zh-TW');
+            }
+
+            function updatePingBadge(ping) {
+                const badge = document.getElementById('ping-badge');
+                if (!badge) return;
+                badge.innerHTML = '';
+                const icon = document.createElement('i');
+                icon.className = 'fa-solid fa-bolt mr-1 text-[10px]';
+                const text = document.createElement('span');
+                if (ping == null || isNaN(Number(ping))) {
+                    badge.className = 'text-xs text-gray-400 bg-gray-500/10 border border-gray-500/30 px-2 py-1 rounded-full font-medium';
+                    text.textContent = '--';
+                } else if (ping < 80) {
+                    badge.className = 'text-xs text-green-400 bg-green-500/10 border border-green-500/30 px-2 py-1 rounded-full font-medium';
+                    text.textContent = '快速';
+                } else if (ping < 200) {
+                    badge.className = 'text-xs text-yellow-400 bg-yellow-500/10 border border-yellow-500/30 px-2 py-1 rounded-full font-medium';
+                    text.textContent = '普通';
+                } else {
+                    badge.className = 'text-xs text-red-400 bg-red-500/10 border border-red-500/30 px-2 py-1 rounded-full font-medium';
+                    text.textContent = '延遲';
+                }
+                badge.appendChild(icon);
+                badge.appendChild(text);
+            }
+
+            function getInitial(name) {
+                if (!name) return '?';
+                const trimmed = name.trim();
+                const match = trimmed.match(/[A-Za-z\u4e00-\u9fa5]/);
+                return match ? match[0].toUpperCase() : trimmed[0].toUpperCase();
+            }
+
+            function hashColor(str) {
+                if (!str) return '#5865F2';
+                let h = 0;
+                for (let i = 0; i < str.length; i++) {
+                    h = ((h << 5) - h) + str.charCodeAt(i);
+                    h |= 0;
+                }
+                const palette = ['#5865F2','#EB459E','#57F287','#FEE75C','#ED4245','#3BA55D','#7289DA','#00B0F4','#8A6AF2','#14B8A6'];
+                return palette[Math.abs(h) % palette.length];
+            }
+
+            function makeFallbackIcon(g) {
+                const wrap = document.createElement('div');
+                wrap.className = 'w-14 h-14 rounded-full flex items-center justify-center text-white font-extrabold text-lg flex-shrink-0 ring-2 ring-black/40 shadow-inner overflow-hidden';
+                const color = g.iconColor || hashColor(g.name + '|' + (g.id || ''));
+                wrap.style.background = 'radial-gradient(circle at 30% 25%, ' + lighten(color, 20) + ' 0%, ' + color + ' 65%, ' + darken(color, 15) + ' 100%)';
+                wrap.textContent = getInitial(g.name);
+                return wrap;
+            }
+
+            function hexToRgb(hex) {
+                const m = hex.replace('#','');
+                const full = m.length === 3 ? m.split('').map(c=>c+c).join('') : m;
+                const int = parseInt(full, 16);
+                return { r:(int>>16)&255, g:(int>>8)&255, b:int&255 };
+            }
+            function rgbToHex(r,g,b) {
+                const toHex = n => { const v = Math.max(0,Math.min(255,Math.round(n))).toString(16); return v.length===1?'0'+v:v; };
+                return '#'+toHex(r)+toHex(g)+toHex(b);
+            }
+            function lighten(hex, amt) {
+                const {r,g,b} = hexToRgb(hex);
+                return rgbToHex(r+(255-r)*(amt/100), g+(255-g)*(amt/100), b+(255-b)*(amt/100));
+            }
+            function darken(hex, amt) {
+                const {r,g,b} = hexToRgb(hex);
+                return rgbToHex(r*(1-amt/100), g*(1-amt/100), b*(1-amt/100));
+            }
+
+            function renderGuilds(guilds) {
+                const container = document.getElementById('guilds-container');
+                if (!guilds || guilds.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full text-center py-12 text-gray-400">
+                            <i class="fa-solid fa-inbox text-3xl mb-3"></i>
+                            <p>尚無伺服器資料</p>
+                        </div>`;
+                    return;
+                }
+                container.innerHTML = '';
+                guilds.forEach(g => {
+                    const hasInvite = !!(g.inviteUrl && g.inviteUrl.trim() !== '' && g.inviteUrl !== '#');
+                    let card;
+                    if (hasInvite) {
+                        card = document.createElement('a');
+                        card.href = g.inviteUrl;
+                        card.target = '_blank';
+                        card.rel = 'noopener noreferrer';
+                        card.title = '點擊前往 ' + (g.name || '伺服器');
+                    } else {
+                        card = document.createElement('div');
+                        card.title = '此伺服器尚未設定邀請連結';
+                    }
+                    card.className = [
+                        'group',
+                        'bg-[#1e2227]',
+                        'hover:bg-discord-dark',
+                        'border',
+                        hasInvite ? 'border-gray-700 hover:border-discord/60 cursor-pointer' : 'border-gray-700/70 opacity-90 cursor-not-allowed',
+                        'rounded-2xl',
+                        'p-5',
+                        'flex items-center gap-4',
+                        'transition-all',
+                        hasInvite ? 'hover:shadow-lg hover:shadow-discord/20 hover:-translate-y-0.5' : ''
+                    ].join(' ');
+
+                    let iconEl;
+                    if (g.icon) {
+                        iconEl = document.createElement('div');
+                        iconEl.className = 'relative flex-shrink-0';
+                        const img = document.createElement('img');
+                        img.src = g.icon;
+                        img.alt = (g.name || 'server') + ' icon';
+                        img.className = 'w-14 h-14 rounded-full object-cover ring-2 ring-black/50 shadow-md bg-discord-dark';
+                        img.loading = 'lazy';
+                        img.referrerPolicy = 'no-referrer';
+                        img.onerror = function () {
+                            const fb = makeFallbackIcon(g);
+                            iconEl.innerHTML = '';
+                            iconEl.appendChild(fb);
+                        };
+                        iconEl.appendChild(img);
+                    } else {
+                        iconEl = makeFallbackIcon(g);
+                    }
+
+                    const info = document.createElement('div');
+                    info.className = 'flex-1 min-w-0';
+                    const name = document.createElement('h3');
+                    name.className = 'font-bold truncate ' + (hasInvite ? 'text-white group-hover:text-discord' : 'text-gray-300') + ' transition-colors';
+                    name.textContent = g.name || '未命名伺服器';
+                    const meta = document.createElement('div');
+                    meta.className = 'flex items-center gap-3 flex-wrap text-xs text-gray-400 mt-1';
+                    const members = document.createElement('span');
+                    members.className = 'inline-flex items-center gap-1';
+                    members.innerHTML = `<i class="fa-solid fa-users"></i><span>${formatNumber(g.memberCount)} 成員</span>`;
+                    meta.appendChild(members);
+                    if (!hasInvite) {
+                        const noInv = document.createElement('span');
+                        noInv.className = 'inline-flex items-center gap-1 text-gray-500';
+                        noInv.innerHTML = `<i class="fa-solid fa-lock text-[10px]"></i><span>無公開邀請</span>`;
+                        meta.appendChild(noInv);
+                    }
+                    info.appendChild(name);
+                    info.appendChild(meta);
+
+                    const arrow = document.createElement('div');
+                    arrow.className = 'flex-shrink-0 ' + (hasInvite ? 'text-gray-500 group-hover:text-discord' : 'text-gray-700') + ' transition-colors';
+                    arrow.innerHTML = hasInvite
+                        ? '<i class="fa-solid fa-arrow-right-to-bracket"></i>'
+                        : '<i class="fa-solid fa-ban"></i>';
+
+                    card.appendChild(iconEl);
+                    card.appendChild(info);
+                    card.appendChild(arrow);
+                    container.appendChild(card);
+                });
+            }
+
+            function renderError(msg) {
+                const container = document.getElementById('guilds-container');
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-red-400 bg-red-500/5 border border-red-500/20 rounded-2xl">
+                        <i class="fa-solid fa-triangle-exclamation text-3xl mb-3"></i>
+                        <p class="font-medium mb-1">無法載入伺服器資料</p>
+                        <p class="text-sm text-red-300/80">${msg || '請稍後再重試或聯絡管理員。'}</p>
+                    </div>`;
+            }
+
+            async function loadDashboard() {
+                const container = document.getElementById('guilds-container');
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-spinner fa-spin text-3xl mb-3"></i>
+                        <p>正在載入伺服器資料...</p>
+                    </div>`;
+                document.getElementById('stat-guilds').textContent = '--';
+                document.getElementById('stat-members').textContent = '--';
+                document.getElementById('stat-ping').textContent = '--';
+                updatePingBadge(null);
+
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000);
+                try {
+                    const signal = controller.signal;
+                    const statusPromise = fetch('https://member-list-bot-gakf.onrender.com/api/status', { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
+                    const guildsPromise = fetch('https://member-list-bot-gakf.onrender.com/api/guilds', { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
+                    const [statusData, guildsRaw] = await Promise.all([statusPromise, guildsPromise]);
+                    clearTimeout(timeoutId);
+
+                    let ping = null, guilds = null, guildCount = null, totalMembers = null;
+                    if (statusData) {
+                        if (typeof statusData.ping === 'number') ping = statusData.ping;
+                        else if (typeof statusData.ping === 'string' && !isNaN(Number(statusData.ping))) ping = Number(statusData.ping);
+                    }
+                    if (guildsRaw) {
+                        let list = null;
+                        if (Array.isArray(guildsRaw)) list = guildsRaw;
+                        else if (Array.isArray(guildsRaw.guilds)) list = guildsRaw.guilds;
+                        else if (Array.isArray(guildsRaw.data)) list = guildsRaw.data;
+                        if (list) {
+                            guilds = list.map(item => ({
+                                id: item.id,
+                                name: item.name || item.guildName || item.guild_name || '未命名伺服器',
+                                icon: item.icon || item.iconUrl || item.icon_url || null,
+                                memberCount: item.memberCount ?? item.member_count ?? item.approximateMemberCount ?? item.members ?? 0,
+                                inviteUrl: item.inviteUrl || item.invite_url || item.invite || item.vanityUrl || item.vanity_url || null
+                            }));
+                            guildCount = guilds.length;
+                            totalMembers = guilds.reduce((sum, g) => sum + (Number(g.memberCount) || 0), 0);
+                        }
+                    }
+
+                    document.getElementById('stat-guilds').textContent = formatNumber(guildCount);
+                    document.getElementById('stat-members').textContent = formatNumber(totalMembers);
+                    document.getElementById('stat-ping').textContent = formatNumber(ping);
+                    updatePingBadge(ping);
+
+                    if (guilds) {
+                        renderGuilds(guilds);
+                    } else {
+                        renderError('無法從伺服器列表 /api/guilds 取得有效資料');
+                    }
+                    if (ping == null && guilds == null) {
+                        renderError('後端 API 無回應，請確認 Render 伺服器是否正常啟動 /api/status 與 /api/guilds 端點');
+                    }
+                } catch (e) {
+                    clearTimeout(timeoutId);
+                    console.error(e);
+                    renderError('網路或連線異常：' + (e && e.message ? e.message : '請稍後再試'));
+                }
+            }
+
+            if (isLoggedIn()) {
+                showView('dashboard');
+            } else {
+                showView('prompt');
+            }
+        })();
+    </script>
+</body>
+</html>

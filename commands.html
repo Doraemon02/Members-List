@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令列表 | Members List Bot</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        discord: {
+                            DEFAULT: '#5865F2',
+                            hover: '#4752C4',
+                            dark: '#36393f',
+                            darker: '#2f3136',
+                            darkest: '#202225'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-discord-darkest text-white font-sans antialiased">
+
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <img src="images/logo.png" alt="Members List Bot Logo" class="w-10 h-10 rounded-full object-cover">
+                    <span class="font-bold text-xl tracking-tight">Members List Bot</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html#features" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">功能介紹</a>
+                        <a href="commands.html" class="text-discord transition-colors px-3 py-2 rounded-md text-sm font-bold">指令列表</a>
+                        <a href="faq.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">常見問題</a>
+                        <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="bg-discord hover:bg-discord-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-discord/30">
+                            邀請機器人
+                        </a>
+                    </div>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-discord-darker border-b border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
+                <a href="commands.html" class="block bg-discord-dark text-white px-3 py-2 rounded-md text-base font-bold">指令列表</a>
+                <a href="faq.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">常見問題</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-4 px-3 py-2 rounded-md text-base font-medium">立即邀請機器人</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 標題區塊（與首頁 Hero 字級一致） -->
+    <section class="pt-32 pb-16 bg-discord-darker border-b border-gray-800 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-discord/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-lg animate-fade-in-up">
+                完整<span class="text-discord">指令</span>說明
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 animate-fade-in-up" style="animation-delay: 0.1s;">
+                所有可用的 Discord 斜線指令與使用方式
+            </p>
+        </div>
+    </section>
+
+    <!-- 指令分類與內容區塊 -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-10">
+                
+                <!-- 左側分類導覽 -->
+                <div class="w-full md:w-1/4">
+                    <div class="sticky top-24 bg-discord-darker p-5 rounded-2xl border border-gray-700">
+                        <h3 class="font-bold text-gray-300 mb-4 uppercase tracking-wider text-sm">功能分類</h3>
+                        <nav class="space-y-2">
+                            <a href="#list-management" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
+                                <i class="fa-solid fa-list-check w-6"></i> 名單管理
+                            </a>
+                            <a href="#system-settings" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
+                                <i class="fa-solid fa-gears w-6"></i> 系統設定與工具
+                            </a>
+                            <a href="#moderation" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
+                                <i class="fa-solid fa-gavel w-6"></i> 伺服器指令懲處
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- 右側指令內容 -->
+                <div class="w-full md:w-3/4 space-y-16">
+                    
+                    <!-- 第一大類：名單管理 -->
+                    <div id="list-management" class="scroll-mt-24">
+                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
+                            <i class="fa-solid fa-list-check text-discord text-2xl"></i>
+                            <h2 class="text-2xl font-bold">名單管理</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/新建名單</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單名稱</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">偵測關鍵字</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">自動身分組</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">分隔線</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">建立全新的成員名單，可自訂名稱、設定自動偵測關鍵字、配發自動身分組與名單分隔線樣式。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/新增成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">roblox帳號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">插入位置</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">新增一位成員至指定名單編號，綁定其 Roblox 帳號，可選擇插入名單中的特定位置。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/新增成員_自訂文字</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">自訂文字</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">插入位置</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">新增成員並使用自訂文字來呈現（而非預設的 Roblox 樣板，可用於特殊身分或註記。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/新增表情</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">表情符號</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">在指定成員的名單項目上加上表情符號，用於標記或裝飾。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/編輯成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">新roblox帳號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">新自訂文字</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">修改名單中現有成員的 Roblox 帳號或自訂文字內容。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/移除成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">從指定名單中移除特定成員。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/備份名單</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">建立指定名單的當前版本備份，並產生一組備份碼，供後續還原使用。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/使用備份名單</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">備份碼</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">使用給定的備份碼還原對應的名單版本。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/備份名單資訊</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">備份碼</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">查詢某組備份碼的詳細資訊，還原前可先預覽。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第二大類：系統設定與工具 -->
+                    <div id="system-settings" class="scroll-mt-24">
+                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
+                            <i class="fa-solid fa-gears text-discord text-2xl"></i>
+                            <h2 class="text-2xl font-bold">系統設定與工具</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/管理面板</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">開啟互動式管理面板，可快速切換各項系統設定與名單操作。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/設定權限</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">身分組或成員</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">授予指定身分組或成員使用機器人指令的權限。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/自動更新設定</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">通知頻道</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">設定名單自動更新時的通知發送頻道，並設定自動更新的相關參數。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/自動禁言系統</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">設定自動禁言頻道，在該頻道中，當偵測到有人發送訊息時，將自動禁言。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/刪除禁言系統</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">移除目前設定的自動禁言系統。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/發送訊息</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">訊息內容</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">在當前頻道發送一則訊息。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 第三大類：伺服器指令懲處 -->
+                    <div id="moderation" class="scroll-mt-24">
+                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
+                            <i class="fa-solid fa-gavel text-discord text-2xl"></i>
+                            <h2 class="text-2xl font-bold">伺服器指令懲處</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/大量刪除訊息</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">數量</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium border-dashed border">使用者(選填)</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">大量刪除當前頻道內的指定數量訊息，可選擇只刪除某位使用者的訊息。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/禁言</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">時間</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">將指定成員設為禁言狀態，時間格式例如 30s、10m、2h、1d。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/停權</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">永久停權伺服器中的指定成員。</p>
+                            </div>
+
+                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
+                                <div class="flex flex-wrap items-center gap-2 mb-3">
+                                    <span class="text-discord font-mono font-bold text-lg">/踢出</span>
+                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
+                                </div>
+                                <p class="text-gray-400 leading-relaxed text-sm">將指定成員從伺服器踢出。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="bg-discord-darker py-10 border-t border-gray-800 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3 px-3 py-2">
+                <img src="images/logo.png" alt="Members List Bot Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-transparent transition-all">
+                <span class="font-bold text-lg transition-colors">Members List Bot</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-2">
+                <div class="text-gray-500 text-sm">
+                    &copy; 2026 Members List | Discord Bot
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa-brands fa-discord text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px) scale(0.985); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+</html>
