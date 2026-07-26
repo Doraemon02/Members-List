@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -34,30 +34,58 @@
 </head>
 <body class="bg-discord-darkest text-white font-sans antialiased min-h-screen flex flex-col">
 
+        <!-- 導覽列 -->
     <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <img src="images/logo.png" alt="Members List Bot Logo" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                    <img src="images/logo.png" alt="Members List Bot Logo" class="w-10 h-10 rounded-full object-cover">
                     <span class="font-bold text-xl tracking-tight">Members List Bot</span>
                 </div>
-                <div class="flex items-center gap-4 flex-wrap justify-end">
-                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fa-solid fa-house mr-1"></i> 返回首頁
-                    </a>
-                    <a href="commands.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fa-solid fa-terminal mr-1"></i> 指令列表
-                    </a>
-                    <a href="faq.html" class="text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fa-solid fa-circle-question mr-1"></i> 常見問題
-                    </a>
-                    <button id="logout-btn" class="hidden bg-red-500/20 text-red-400 hover:bg-red-500/30 hover:text-red-300 border border-red-500/30 transition-colors px-3 py-2 rounded-md text-sm font-medium">
-                        <i class="fa-solid fa-right-from-bracket mr-1"></i> 登出
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html#features" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">功能介紹</a>
+                        <a href="commands.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">指令列表</a>
+                        <a href="faq.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">常見問題</a>
+                        <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">
+                            服務表單
+                        </a>
+                        <button id="logout-btn" class="hidden bg-red-500/20 text-red-400 hover:bg-red-500/30 hover:text-red-300 border border-red-500/30 transition-colors px-4 py-2 rounded-md text-sm font-medium">
+                            <i class="fa-solid fa-right-from-bracket mr-1"></i> 登出
+                        </button>
+                        <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="bg-discord hover:bg-discord-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-discord/30">
+                            邀請機器人
+                        </a>
+                    </div>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="logout-btn-mobile" class="hidden text-red-400 hover:text-red-300 transition-colors px-2 py-1 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-right-from-bracket text-xl"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- 手機版選單 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-discord-darker border-b border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
+                <a href="commands.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">指令列表</a>
+                <a href="faq.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">常見問題</a>
+                <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">
+                    服務表單
+                </a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-2 px-3 py-2 rounded-md text-base font-medium">立即邀請機器人</a>
+                <button id="logout-btn-mobile-menu" class="hidden w-full text-left bg-red-500/20 text-red-400 hover:bg-red-500/30 hover:text-red-300 border border-red-500/30 transition-colors mt-2 px-3 py-2 rounded-md text-base font-medium">
+                    <i class="fa-solid fa-right-from-bracket mr-1"></i> 登出
+                </button>
+            </div>
+        </div>
     </nav>
+
 
     <main class="flex-1 pt-24 pb-16">
 
@@ -251,6 +279,29 @@
             const promptView = document.getElementById('prompt-view');
             const dashboardView = document.getElementById('dashboard-view');
             const logoutBtn = document.getElementById('logout-btn');
+            const logoutBtnMobile = document.getElementById('logout-btn-mobile');
+            const logoutBtnMobileMenu = document.getElementById('logout-btn-mobile-menu');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        if (mobileMenu.classList.contains('hidden')) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+                        else { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+                    }
+                });
+                mobileMenu.querySelectorAll('a').forEach(a => {
+                    a.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+                        if (icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); }
+                    });
+                });
+            }
+
             const refreshBtn = document.getElementById('refresh-btn');
             const promptLoginBtn = document.getElementById('prompt-login-btn');
             const loginModal = document.getElementById('login-modal');
@@ -265,12 +316,16 @@
                 if (view === 'dashboard') {
                     promptView.classList.add('hidden');
                     dashboardView.classList.remove('hidden');
-                    logoutBtn.classList.remove('hidden');
+                    if (logoutBtn) logoutBtn.classList.remove('hidden');
+                    if (logoutBtnMobile) logoutBtnMobile.classList.remove('hidden');
+                    if (logoutBtnMobileMenu) logoutBtnMobileMenu.classList.remove('hidden');
                     loadDashboard();
                 } else {
                     dashboardView.classList.add('hidden');
                     promptView.classList.remove('hidden');
-                    logoutBtn.classList.add('hidden');
+                    if (logoutBtn) logoutBtn.classList.add('hidden');
+                    if (logoutBtnMobile) logoutBtnMobile.classList.add('hidden');
+                    if (logoutBtnMobileMenu) logoutBtnMobileMenu.classList.add('hidden');
                 }
             }
 
@@ -350,7 +405,10 @@
                 }
             });
 
-            logoutBtn.addEventListener('click', logout);
+            if (logoutBtn) logoutBtn.addEventListener('click', logout);
+            if (logoutBtnMobile) logoutBtnMobile.addEventListener('click', logout);
+            if (logoutBtnMobileMenu) logoutBtnMobileMenu.addEventListener('click', function(){ logout(); if(mobileMenu){ mobileMenu.classList.add('hidden'); } const icon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null; if (icon) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); } });
+
             refreshBtn.addEventListener('click', loadDashboard);
 
             function formatNumber(n) {
