@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Members List Bot | 專為伺服器打造的名單管理機器人</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -26,18 +25,14 @@
             }
         }
     </script>
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-discord-darkest text-white font-sans antialiased">
 
-    <!-- 導覽列 -->
     <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -56,7 +51,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- 手機版選單按鈕 -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -64,18 +58,17 @@
                 </div>
             </div>
         </div>
-        <!-- 手機版選單 -->
         <div id="mobile-menu" class="hidden md:hidden bg-discord-darker border-b border-gray-700">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
                 <a href="commands.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">指令列表</a>
                 <a href="faq.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">常見問題</a>
+                <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">服務表單</a>
                 <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-4 px-3 py-2 rounded-md text-base font-medium">邀請機器人</a>
             </div>
         </div>
     </nav>
 
-    <!-- 主要內容區 (Hero) -->
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-discord/20 rounded-full blur-[120px] pointer-events-none"></div>
@@ -98,13 +91,10 @@
         </div>
     </section>
 
-    <!-- 服務狀態區塊 -->
     <section id="status" class="py-16 bg-[#0b1016] border-b border-gray-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- 狀態面板 -->
             <div class="bg-[#121921] p-6 md:p-8 rounded-xl border border-[#1e293b] shadow-2xl">
                 
-                <!-- 標題列 -->
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-chart-simple text-red-400 text-xl"></i>
@@ -119,10 +109,8 @@
                     </div>
                 </div>
 
-                <!-- 裝飾分隔線 -->
                 <div class="h-[2px] w-full bg-gradient-to-r from-red-600 via-red-400 to-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)] mb-8 rounded-full"></div>
 
-                <!-- 大型延遲顯示卡片 -->
                 <div class="bg-[#0b1016] rounded-xl p-10 flex flex-col items-center justify-center border border-[#1e293b] mb-8 relative overflow-hidden group">
                     <div class="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     <div class="flex items-center gap-2 mb-3">
@@ -135,9 +123,7 @@
                     </div>
                 </div>
 
-                <!-- 三項子狀態 -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- 名單服務 -->
                     <div class="bg-[#0b1016] border border-[#1e293b] border-l-4 border-l-red-500 rounded-lg p-4 flex justify-between items-center transition-colors hover:bg-[#0f1720]">
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-list-check text-gray-400"></i>
@@ -146,7 +132,6 @@
                         <span class="border border-red-500 text-red-400 px-3 py-1 text-xs rounded font-bold shadow-[0_0_5px_rgba(239,68,68,0.2)]" id="status-list">不可用</span>
                     </div>
 
-                    <!-- 管理服務 -->
                     <div class="bg-[#0b1016] border border-[#1e293b] border-l-4 border-l-red-500 rounded-lg p-4 flex justify-between items-center transition-colors hover:bg-[#0f1720]">
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-gears text-gray-400"></i>
@@ -155,7 +140,6 @@
                         <span class="border border-red-500 text-red-400 px-3 py-1 text-xs rounded font-bold shadow-[0_0_5px_rgba(239,68,68,0.2)]" id="status-manage">不可用</span>
                     </div>
 
-                    <!-- 備份服務 -->
                     <div class="bg-[#0b1016] border border-[#1e293b] border-l-4 border-l-red-500 rounded-lg p-4 flex justify-between items-center transition-colors hover:bg-[#0f1720]">
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-cloud-arrow-up text-gray-400"></i>
@@ -169,7 +153,6 @@
         </div>
     </section>
 
-    <!-- 功能介紹區塊 -->
     <section id="features" class="py-20 bg-discord-darker">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -178,7 +161,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
                 <div class="bg-discord-dark p-8 rounded-2xl border border-gray-700 hover:border-discord transition-colors group">
                     <div class="w-14 h-14 bg-discord/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-gamepad text-2xl text-discord"></i>
@@ -189,18 +171,16 @@
                     </p>
                 </div>
                 
-                <!-- Feature 2 -->
                 <div class="bg-discord-dark p-8 rounded-2xl border border-gray-700 hover:border-discord transition-colors group">
                     <div class="w-14 h-14 bg-discord/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-cloud-arrow-up text-2xl text-discord"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">備份系統</h3>
                     <p class="text-gray-400 leading-relaxed text-sm">
-                     可備份成員名單資料，需要時可快速還原，不用怕資料遺失。
+                        可備份成員名單資料，需要時可快速還原，不用怕資料遺失。
                     </p>
                 </div>
 
-                <!-- Feature 3 -->
                 <div class="bg-discord-dark p-8 rounded-2xl border border-gray-700 hover:border-discord transition-colors group">
                     <div class="w-14 h-14 bg-discord/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-shield-halved text-2xl text-discord"></i>
@@ -214,9 +194,6 @@
         </div>
     </section>
 
-
-
-    <!-- 頁尾 -->
     <footer class="bg-discord-darker py-10 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3 px-3 py-2">
