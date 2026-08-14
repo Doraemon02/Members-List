@@ -26,7 +26,6 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -34,7 +33,6 @@
 </head>
 <body class="bg-discord-darkest text-white font-sans antialiased min-h-screen flex flex-col">
 
-        <!-- 導覽列 -->
     <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -58,7 +56,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- 手機版選單按鈕 -->
                 <div class="md:hidden flex items-center gap-2">
                     <button id="logout-btn-mobile" class="hidden text-red-400 hover:text-red-300 transition-colors px-2 py-1 rounded-md text-sm font-medium">
                         <i class="fa-solid fa-right-from-bracket text-xl"></i>
@@ -69,7 +66,6 @@
                 </div>
             </div>
         </div>
-        <!-- 手機版選單 -->
         <div id="mobile-menu" class="hidden md:hidden bg-discord-darker border-b border-gray-700">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="index.html#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
@@ -175,7 +171,7 @@
                             <i class="fa-solid fa-layer-group text-discord"></i>
                             伺服器列表
                         </h2>
-                        <p class="text-gray-400 text-sm mt-1">查看管理的所有伺服器與其成員數，可直接前往邀請連結</p>
+                        <p class="text-gray-400 text-sm mt-1">查看管理的所有伺服器與其成員數，點擊卡片可直接前往專屬邀請連結</p>
                     </div>
                     <button id="refresh-btn" class="bg-discord/20 text-discord hover:bg-discord/30 border border-discord/30 transition-colors px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
                         <i class="fa-solid fa-rotate"></i> 重新整理
@@ -486,6 +482,7 @@
                 return rgbToHex(r*(1-amt/100), g*(1-amt/100), b*(1-amt/100));
             }
 
+            // 渲染伺服器列表 (方法一：依據後端 API 回傳的 inviteUrl 顯示連結)
             function renderGuilds(guilds) {
                 const container = document.getElementById('guilds-container');
                 if (!guilds || guilds.length === 0) {
@@ -623,6 +620,7 @@
                                 name: item.name || item.guildName || item.guild_name || '未命名伺服器',
                                 icon: item.icon || item.iconUrl || item.icon_url || null,
                                 memberCount: item.memberCount ?? item.member_count ?? item.approximateMemberCount ?? item.members ?? 0,
+                                // 純純讀取後端 API 回傳的 inviteUrl 欄位
                                 inviteUrl: item.inviteUrl || item.invite_url || item.invite || item.vanityUrl || item.vanity_url || null
                             }));
                             guildCount = guilds.length;
