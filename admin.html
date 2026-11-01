@@ -692,9 +692,9 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                 document.getElementById('stat-ping').textContent = '--';
                 updatePingBadge(null);
 
-                const API_BASE = 'http://78.154.103.16:16678';
+                const API_BASE = 'https://mlbot.wispbyte.app';
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 12000);
+                const timeoutId = setTimeout(() => controller.abort(), 120000);
 
                 try {
                     const signal = controller.signal;
