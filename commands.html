@@ -30,7 +30,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
+<style id="mlb-polish">
+:root{color-scheme:dark;--bg:#080b14;--panel:rgba(20,25,42,.66);--line:rgba(164,177,220,.15);--muted:#a7b0c8;--accent:#8b9cff;--accent2:#c2a6ff}html{scroll-padding-top:6rem}body{background:radial-gradient(ellipse at 12% -10%,rgba(88,101,242,.19),transparent 38%),radial-gradient(ellipse at 90% 16%,rgba(153,111,255,.10),transparent 30%),#080b14!important;color:#eef1ff;letter-spacing:.005em;line-height:1.75}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}nav{background:rgba(10,13,24,.72)!important;backdrop-filter:blur(22px) saturate(150%)!important;-webkit-backdrop-filter:blur(22px) saturate(150%)!important;border-bottom:1px solid var(--line)!important;box-shadow:0 8px 32px #0002}nav img{box-shadow:0 0 0 1px #ffffff20,0 0 28px #7888ff30}a,button{transition:color .2s ease,background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #9aa8ff;outline-offset:3px}h1,h2,h3{letter-spacing:-.035em;line-height:1.2}p{line-height:1.85}.bg-discord-darker,.bg-discord-dark{background:rgba(20,25,42,.62)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.rounded-xl,.rounded-2xl{border-radius:1.15rem}.border-gray-700,.border-gray-800{border-color:var(--line)!important}.shadow-lg{box-shadow:0 18px 60px #0003}.text-gray-400{color:#a7b0c8!important}.hover\:border-discord\/50:hover{box-shadow:0 14px 38px #0003,0 0 0 1px #8b9cff30;transform:translateY(-2px)}section{scroll-margin-top:6rem}footer{border-color:var(--line)!important;background:rgba(8,11,20,.65)!important}::selection{background:#7988ff66;color:white}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#080b14}::-webkit-scrollbar-thumb{background:#303953;border:2px solid #080b14;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#6475ad}
+/* Commands page */
+.commands-hero{position:relative;overflow:hidden;padding:10rem 1.5rem 4.5rem;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(22,28,51,.78),rgba(9,12,24,.6))}.hero-content{max-width:1100px;margin:auto;position:relative;z-index:2}.eyebrow{display:inline-flex;align-items:center;gap:.65rem;color:#b8c2ff;font-size:.72rem;font-weight:800;letter-spacing:.18em}.live-dot{width:7px;height:7px;border-radius:50%;background:#8ef0c0;box-shadow:0 0 14px #8ef0c0;animation:pulse-dot 2s infinite}.commands-hero h1{font-size:clamp(2.7rem,7vw,5.7rem);font-weight:900;letter-spacing:-.075em;margin:1.1rem 0}.commands-hero h1 span{background:linear-gradient(100deg,#9baaff,#d4b6ff 60%,#f2d7ff);background-clip:text;-webkit-background-clip:text;color:transparent}.commands-hero p{max-width:650px;color:var(--muted);font-size:clamp(1rem,2vw,1.2rem)}.hero-orb{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}.orb-one{width:360px;height:360px;right:8%;top:-160px;background:radial-gradient(circle,#7c8cff30,transparent 68%)}.orb-two{width:280px;height:280px;right:35%;bottom:-220px;background:radial-gradient(circle,#c29cff20,transparent 70%)}.hero-stats{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}.hero-stats div{min-width:115px;padding:.8rem 1rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);backdrop-filter:blur(12px)}.hero-stats strong,.hero-stats span{display:block}.hero-stats strong{font-size:1.6rem;line-height:1.2}.hero-stats span{font-size:.78rem;color:var(--muted);margin-top:.25rem}.commands-layout{max-width:1400px;margin:auto;padding:3rem 1.5rem 6rem;display:grid;grid-template-columns:235px minmax(0,1fr);gap:2rem;align-items:start}.command-sidebar{position:sticky;top:6rem;padding:1.1rem;border:1px solid var(--line);border-radius:20px;background:rgba(17,22,38,.65);backdrop-filter:blur(22px)}.sidebar-title{font-size:.75rem;color:#e4e8ff;font-weight:800;letter-spacing:.08em;margin:.2rem .6rem 1rem;display:flex;justify-content:space-between}.sidebar-title span{color:#7f8bad;font-size:.65rem}.command-sidebar>a{display:flex;gap:.7rem;align-items:center;padding:.7rem .75rem;border-radius:11px;color:#b6bfd6;font-size:.88rem}.command-sidebar>a:hover{background:#8797ff16;color:#dfe4ff;transform:translateX(3px)}.command-sidebar>a i{width:18px;color:#9baaff}.sidebar-tip{border-top:1px solid var(--line);margin-top:1rem;padding:1rem .5rem .2rem;color:#a9b4d1;font-size:.78rem;line-height:1.7}.sidebar-tip i{color:#c3b0ff}.sidebar-tip p{margin:.4rem 0}.commands-content{min-width:0}.command-search-wrap{display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:15px;background:rgba(19,24,41,.72);backdrop-filter:blur(20px);box-shadow:0 10px 35px #0002;margin-bottom:2.4rem}.command-search-wrap>i{color:#9baaff}.command-search-wrap input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#f1f3ff;font:inherit;font-size:.95rem}.command-search-wrap input::placeholder{color:#7f8aa8}.command-search-wrap kbd{white-space:nowrap;color:#8994b2;font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:.2rem .4rem}.command-section{margin:0 0 3.5rem;scroll-margin-top:6.5rem}.section-heading{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}.section-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid #9aaaff28;border-radius:14px;color:#b0bcff;background:linear-gradient(135deg,#8495ff1c,#c49cff12);font-size:1.1rem}.section-heading h2{font-size:1.45rem;font-weight:800;margin:0}.section-heading p{font-size:.8rem;color:#8e9ab8;margin:.35rem 0 0}.section-count{margin-left:auto;border:1px solid var(--line);padding:.3rem .6rem;border-radius:8px;color:#aeb9da;font-size:.75rem;white-space:nowrap}.command-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.command-card{min-width:0;padding:1.15rem 1.2rem 1.2rem;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(27,33,54,.78),rgba(14,18,32,.74));backdrop-filter:blur(16px);box-shadow:0 12px 30px #00000012;transition:transform .25s,border-color .25s,box-shadow .25s}.command-card:hover{transform:translateY(-3px);border-color:#9baaff55;box-shadow:0 18px 42px #0003,0 0 30px #8395ff0b}.command-card-top{display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap}.command-name{font:700 1.05rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#b9c4ff;overflow-wrap:anywhere}.command-type{font-size:.65rem;color:#aab5d3;background:#ffffff07;border:1px solid var(--line);border-radius:99px;padding:.18rem .5rem;white-space:nowrap}.command-desc{font-size:.86rem;color:#aab4cc;margin:.7rem 0 .9rem;line-height:1.8}.param-list{display:flex;flex-wrap:wrap;gap:.4rem}.param-chip{font-size:.72rem;color:#d2d8f0;background:rgba(137,151,255,.09);border:1px solid rgba(137,151,255,.18);border-radius:7px;padding:.22rem .5rem;cursor:help}.syntax{display:block;overflow-wrap:anywhere;white-space:pre-wrap;margin-top:.85rem;padding:.65rem .75rem;border-radius:9px;border:1px solid var(--line);background:rgba(4,7,15,.45);color:#c5d0f4;font-size:.76rem;line-height:1.65}.command-footnote{font-size:.8rem;color:#8591ad;border-top:1px solid var(--line);padding-top:1.3rem}.command-footnote code{color:#bdc7ff}.search-empty{padding:2rem;text-align:center;border:1px dashed var(--line);border-radius:14px;color:#aab4cc;margin-bottom:2rem}
+@keyframes pulse-dot{50%{opacity:.5;box-shadow:0 0 4px #8ef0c0}}@media(max-width:900px){.commands-layout{grid-template-columns:1fr}.command-sidebar{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2rem}.sidebar-title,.sidebar-tip{grid-column:1/-1}.command-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.commands-hero{padding:8.5rem 1.1rem 3rem}.commands-layout{padding:1.5rem 1rem 4rem}.command-grid{grid-template-columns:1fr}.command-sidebar{grid-template-columns:1fr 1fr}.command-sidebar>a{font-size:.8rem;padding:.65rem .55rem}.command-search-wrap kbd{display:none}.section-heading{gap:.7rem}.section-heading h2{font-size:1.2rem}.section-heading p{font-size:.74rem}.section-count{font-size:.68rem}.hero-stats{gap:.6rem}.hero-stats div{flex:1;min-width:85px;padding:.7rem}.command-card{padding:1rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+<style>
+/* Shared page polish */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(88,101,242,.17),transparent 34%),
+    radial-gradient(ellipse at 88% 28%,rgba(139,92,246,.12),transparent 32%),
+    radial-gradient(ellipse at 50% 100%,rgba(56,189,248,.07),transparent 38%);
+}
+.page-title{
+  font-size:clamp(2.7rem,6vw,4.8rem)!important;
+  line-height:1.08!important;font-weight:900!important;letter-spacing:-.055em!important;
+  background:linear-gradient(110deg,#fff 8%,#c7d2fe 48%,#818cf8 78%,#a78bfa);
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  text-shadow:0 12px 48px rgba(88,101,242,.16);
+  animation:pageTitleIn .75s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes pageTitleIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.footer-icon-link{
+  width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(148,163,184,.2);border-radius:14px;
+  color:#a7b0c8;background:rgba(255,255,255,.035);
+  transition:transform .22s ease,color .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.footer-icon-link i{font-size:17px}
+.footer-icon-link:hover{transform:translateY(-4px);color:#fff;border-color:rgba(129,140,248,.7);
+  background:rgba(88,101,242,.18);box-shadow:0 10px 28px rgba(88,101,242,.2)}
+nav a{transition:color .2s ease,background .2s ease,transform .2s ease}
+article,.faq-item,.feature-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,0,0,.22)}
+@media(prefers-reduced-motion:reduce){.page-title,*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style></head>
 <body class="bg-discord-darkest text-white font-sans antialiased">
 
     <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
@@ -45,7 +82,7 @@
                         <a href="index.html#features" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">功能介紹</a>
                         <a href="commands.html" class="text-discord transition-colors px-3 py-2 rounded-md text-sm font-bold">指令列表</a>
                         <a href="faq.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">常見問題</a>
-                        <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">服務表單</a>
+                        <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">官方群組</a>
                         <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="bg-discord hover:bg-discord-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-discord/30">
                             邀請機器人
                         </a>
@@ -63,267 +100,14 @@
                 <a href="index.html#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
                 <a href="commands.html" class="block bg-discord-dark text-white px-3 py-2 rounded-md text-base font-bold">指令列表</a>
                 <a href="faq.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">常見問題</a>
-                <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">服務表單</a>
+                <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">官方群組</a>
                 <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-4 px-3 py-2 rounded-md text-base font-medium">立即邀請機器人</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-16 bg-discord-darker border-b border-gray-800 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-discord/20 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-lg animate-fade-in-up">
-                完整<span class="text-discord">指令</span>說明
-            </h1>
-            <p class="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-4 animate-fade-in-up" style="animation-delay: 0.1s;">
-                所有可用的 Discord 斜線指令與使用方式
-            </p>
-        </div>
-    </section>
-
-    <section class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row gap-10">
-                
-                <div class="w-full md:w-1/4">
-                    <div class="sticky top-24 bg-discord-darker p-5 rounded-2xl border border-gray-700">
-                        <h3 class="font-bold text-gray-300 mb-4 uppercase tracking-wider text-sm">功能分類</h3>
-                        <nav class="space-y-2">
-                            <a href="#list-management" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
-                                <i class="fa-solid fa-list-check w-6"></i> 名單管理
-                            </a>
-                            <a href="#system-settings" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
-                                <i class="fa-solid fa-gears w-6"></i> 系統設定與工具
-                            </a>
-                            <a href="#moderation" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
-                                <i class="fa-solid fa-gavel w-6"></i> 懲處管理
-                            </a>
-                            <a href="#others" class="block px-3 py-2 rounded-lg hover:bg-discord-dark hover:text-discord transition-colors text-sm font-medium">
-                                <i class="fa-solid fa-folder-open w-6"></i> 其他
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-
-                <div class="w-full md:w-3/4 space-y-16">
-                    
-                    <div id="list-management" class="scroll-mt-24">
-                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
-                            <i class="fa-solid fa-list-check text-discord text-2xl"></i>
-                            <h2 class="text-2xl font-bold">名單管理</h2>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/新建名單</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單名稱</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">偵測關鍵字</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">自動身分組</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">分隔線</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">建立全新的成員名單，可自訂名稱、設定自動偵測關鍵字、配發自動身分組與名單分隔線樣式。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/新增成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">roblox帳號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">插入位置</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">新增一位成員至指定名單編號，綁定其 Roblox 帳號，可選擇插入名單中的特定位置。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/新增成員_自訂文字</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">自訂文字</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">插入位置</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">新增成員並使用自訂文字來呈現（而非預設的 Roblox 樣板），可用於特殊身分或註記。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/新增表情</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">表情符號</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">在指定成員的名單項目上加上表情符號，用於標記或裝飾。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/編輯成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">新roblox帳號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">新自訂文字</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">修改名單中現有成員的 Roblox 帳號或自訂文字內容。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/移除成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">從指定名單中移除特定成員。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/備份名單</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">名單編號</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">建立指定名單的當前版本備份，並產生一組備份碼，供後續還原使用。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/使用備份名單</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">備份碼</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">使用給定的備份碼還原對應的名單版本。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/備份名單資訊</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">備份碼</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">查詢某組備份碼的詳細資訊，還原前可先預覽。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/查詢</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">透過 Roblox ID 查詢是否名單有此成員與顯示此成員所在名單。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="system-settings" class="scroll-mt-24">
-                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
-                            <i class="fa-solid fa-gears text-discord text-2xl"></i>
-                            <h2 class="text-2xl font-bold">系統設定與工具</h2>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/管理面板</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">開啟互動式管理面板，可快速切換各項系統設定與名單操作。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/設定權限</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">身分組或成員</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">授予指定身分組或成員使用機器人指令的權限。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/自動更新設定</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">通知頻道</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">設定名單自動更新時的通知發送頻道，並設定自動更新的相關參數。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/自動禁言系統</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">設定自動禁言頻道，在該頻道中，當偵測到有人發送訊息時，將自動禁言。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/刪除禁言系統</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">移除目前設定的自動禁言系統。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/發送訊息</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">訊息內容</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">在當前頻道發送一則訊息。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="moderation" class="scroll-mt-24">
-                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
-                            <i class="fa-solid fa-gavel text-discord text-2xl"></i>
-                            <h2 class="text-2xl font-bold">懲處管理</h2>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/禁言</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">時間</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">將指定成員設為禁言狀態，時間格式例如 30s、10m、2h、1d。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/停權</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">永久停權伺服器中的指定成員。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/踢出</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">成員</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">將指定成員從伺服器踢出。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="others" class="scroll-mt-24">
-                        <div class="flex items-center gap-3 border-b border-gray-700 pb-3 mb-6">
-                            <i class="fa-solid fa-folder-open text-discord text-2xl"></i>
-                            <h2 class="text-2xl font-bold">其他</h2>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/大量刪除訊息</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">數量</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium border-dashed border">使用者(選填)</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">大量刪除當前頻道內的指定數量訊息，可選擇只刪除某位使用者的訊息。</p>
-                            </div>
-
-                            <div class="bg-discord-dark p-5 rounded-xl border border-gray-700 hover:border-discord/50 transition-colors">
-                                <div class="flex flex-wrap items-center gap-2 mb-3">
-                                    <span class="text-discord font-mono font-bold text-lg">/發送訊息</span>
-                                    <span class="text-xs bg-black/40 px-2 py-1 rounded text-gray-300 font-sans text-sm tracking-wider font-medium">訊息內容</span>
-                                </div>
-                                <p class="text-gray-400 leading-relaxed text-sm">在當前頻道發送一則訊息內容。</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="commands-hero"><div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div><div class="hero-content"><span class="eyebrow"><span class="live-dot"></span> MEMBERS LIST BOT · COMMAND CENTER</span><h1>指令，<span>一目了然。</span></h1><p>快速查找斜線指令的名稱、參數與簡介。</p><div class="hero-stats"><div><strong>28</strong><span>斜線指令</span></div><div><strong>4</strong><span>功能分類</span></div></div></div></section>
+<section class="commands-layout"><aside class="command-sidebar"><div class="sidebar-title">快速導覽 <span>INDEX</span></div><a href="#list-management"><i class="fa-solid fa-list-check"></i> 名單管理</a><a href="#system-settings"><i class="fa-solid fa-gears"></i> 系統設定與工具</a><a href="#moderation"><i class="fa-solid fa-gavel"></i> 懲處管理</a><a href="#others"><i class="fa-solid fa-wand-magic-sparkles"></i> 一般工具</a><div class="sidebar-tip"><i class="fa-regular fa-lightbulb"></i><p>點選 Discord 的斜線指令後，依提示填入所需參數。</p></div></aside><div class="commands-content"><div class="command-search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input id="command-search" type="search" placeholder="搜尋指令、用途或參數…" autocomplete="off"><kbd>⌘ / Ctrl + K</kbd></div><div id="search-empty" class="search-empty" hidden>找不到符合的指令，試試其他關鍵字。</div><section id="list-management" class="command-section"><div class="section-heading"><span class="section-icon"><i class="fa-solid fa-list-check"></i></span><div><h2>名單管理</h2><p>依照實際程式指令整理，參數名稱以 Discord 指令選單為準。</p></div><span class="section-count">0 項</span></div><div class="command-grid"><article class="command-card" data-search="/使用備份名單 📂 名單管理 | 輸入備份碼還原並新建名單 備份碼 請輸入 8 碼備份碼"><div class="command-card-top"><span class="command-name">/使用備份名單</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 輸入備份碼還原並新建名單</p><div class="param-list"><span class="param-chip" title="請輸入 8 碼備份碼">備份碼</span></div></article><article class="command-card" data-search="/備份名單 📂 名單管理 | 備份指定的名單並取得備份碼 名單編號 請輸入要備份的名單編號"><div class="command-card-top"><span class="command-name">/備份名單</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 備份指定的名單並取得備份碼</p><div class="param-list"><span class="param-chip" title="請輸入要備份的名單編號">名單編號</span></div></article><article class="command-card" data-search="/備份名單資訊 📂 名單管理 | 查看備份碼詳細資訊與刪除 備份碼 請選擇或輸入備份碼"><div class="command-card-top"><span class="command-name">/備份名單資訊</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 查看備份碼詳細資訊與刪除</p><div class="param-list"><span class="param-chip" title="請選擇或輸入備份碼">備份碼</span></div></article><article class="command-card" data-search="/名單ui設定 ⚙️ 系統設定 | 設定名單 ui 樣式 "><div class="command-card-top"><span class="command-name">/名單ui設定</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定 | 設定名單 UI 樣式</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/新增成員 📂 名單管理 | 將成員加入名單 名單編號 請輸入名單編號 成員 請輸入成員 | 多人請用逗號隔開 roblox帳號 roblox id | 多人請用逗號隔開 插入位置 輸入要插入名單位置，不填則預設排在名單最末端"><div class="command-card-top"><span class="command-name">/新增成員</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 將成員加入名單</p><div class="param-list"><span class="param-chip" title="請輸入名單編號">名單編號</span><span class="param-chip" title="請輸入成員 | 多人請用逗號隔開">成員</span><span class="param-chip" title="Roblox ID | 多人請用逗號隔開">roblox帳號</span><span class="param-chip" title="輸入要插入名單位置，不填則預設排在名單最末端">插入位置</span></div></article><article class="command-card" data-search="/新增成員_自訂文字 📂 名單管理 | 將成員加入名單 名單編號 請輸入名單編號 成員 請輸入成員 | 多人請用逗號隔開 自訂文字 自訂文字 | 多人請用逗號隔開 插入位置 輸入要插入名單位置，不填則預設排在名單最末端"><div class="command-card-top"><span class="command-name">/新增成員_自訂文字</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 將成員加入名單</p><div class="param-list"><span class="param-chip" title="請輸入名單編號">名單編號</span><span class="param-chip" title="請輸入成員 | 多人請用逗號隔開">成員</span><span class="param-chip" title="自訂文字 | 多人請用逗號隔開">自訂文字</span><span class="param-chip" title="輸入要插入名單位置，不填則預設排在名單最末端">插入位置</span></div></article><article class="command-card" data-search="/新增表情 📂 名單管理 | 名單中成員後面增加表情符號 成員 請輸入成員 表情符號 請輸入要新增的表情符號 | 不填則清除該成員表情符號"><div class="command-card-top"><span class="command-name">/新增表情</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 名單中成員後面增加表情符號</p><div class="param-list"><span class="param-chip" title="請輸入成員">成員</span><span class="param-chip" title="請輸入要新增的表情符號 | 不填則清除該成員表情符號">表情符號</span></div></article><article class="command-card" data-search="/新建名單 📂 名單管理 | 建立名單 名單名稱 請輸入名單名稱 偵測關鍵字 roblox 暱稱內包含此關鍵字時會自動賦予身分組 自動身分組 偵測關鍵字時，要自動賦予的 discord 身分組 分隔線 是否要在名單下方加上虛線分隔線 | 預設為要"><div class="command-card-top"><span class="command-name">/新建名單</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 建立名單</p><div class="param-list"><span class="param-chip" title="請輸入名單名稱">名單名稱</span><span class="param-chip" title="Roblox 暱稱內包含此關鍵字時會自動賦予身分組">偵測關鍵字</span><span class="param-chip" title="偵測關鍵字時，要自動賦予的 Discord 身分組">自動身分組</span><span class="param-chip" title="是否要在名單下方加上虛線分隔線 | 預設為要">分隔線</span></div></article><article class="command-card" data-search="/查詢 📂 名單管理 | 透過 roblox id 查詢 成員 請輸入 roblox id"><div class="command-card-top"><span class="command-name">/查詢</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 透過 Roblox ID 查詢</p><div class="param-list"><span class="param-chip" title="請輸入 Roblox ID">成員</span></div></article><article class="command-card" data-search="/移除成員 📂 名單管理 | 移除成員 名單編號 請輸入名單編號 成員 請輸入成員"><div class="command-card-top"><span class="command-name">/移除成員</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 移除成員</p><div class="param-list"><span class="param-chip" title="請輸入名單編號">名單編號</span><span class="param-chip" title="請輸入成員">成員</span></div></article><article class="command-card" data-search="/編輯成員 📂 名單管理 | 修改指定名單內現有成員的資訊 名單編號 請輸入名單編號 成員 請輸入成員 新roblox_id 新roblox id 新自訂文字 新自訂文字"><div class="command-card-top"><span class="command-name">/編輯成員</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 修改指定名單內現有成員的資訊</p><div class="param-list"><span class="param-chip" title="請輸入名單編號">名單編號</span><span class="param-chip" title="請輸入成員">成員</span><span class="param-chip" title="新Roblox ID">新roblox_id</span><span class="param-chip" title="新自訂文字">新自訂文字</span></div></article></div></section><section id="system-settings" class="command-section"><div class="section-heading"><span class="section-icon"><i class="fa-solid fa-gears"></i></span><div><h2>系統設定與工具</h2><p>依照實際程式指令整理，參數名稱以 Discord 指令選單為準。</p></div><span class="section-count">0 項</span></div><div class="command-grid"><article class="command-card" data-search="/全域通知 機器人作者專用 "><div class="command-card-top"><span class="command-name">/全域通知</span><span class="command-type">斜線指令</span></div><p class="command-desc">機器人作者專用</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/刪除禁言系統 ⚙️ 系統設定與工具 | 刪除自動禁言頻道 "><div class="command-card-top"><span class="command-name">/刪除禁言系統</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定與工具 | 刪除自動禁言頻道</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/管理面板 📂 名單管理 | 顯示機器人管理面板 "><div class="command-card-top"><span class="command-name">/管理面板</span><span class="command-type">斜線指令</span></div><p class="command-desc">📂 名單管理 | 顯示機器人管理面板</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/自動更新設定 ⚙️ 系統設定與工具 | 開關自動更新 通知頻道 "><div class="command-card-top"><span class="command-name">/自動更新設定</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定與工具 | 開關自動更新</p><div class="param-list"><span class="param-chip" title="">通知頻道</span></div></article><article class="command-card" data-search="/自動禁言系統 ⚙️ 系統設定與工具 | 創建自動禁言頻道 "><div class="command-card-top"><span class="command-name">/自動禁言系統</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定與工具 | 創建自動禁言頻道</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/設定 ⚙️ 系統設定 | 設定通知頻道 "><div class="command-card-top"><span class="command-name">/設定</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定 | 設定通知頻道</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/設定權限 ⚙️ 系統設定與工具 | 群主專用 | 設定可操作權限身分組或成員 身分組或成員 請選擇要給予操作的身分組或成員"><div class="command-card-top"><span class="command-name">/設定權限</span><span class="command-type">斜線指令</span></div><p class="command-desc">⚙️ 系統設定與工具 | 群主專用 | 設定可操作權限身分組或成員</p><div class="param-list"><span class="param-chip" title="請選擇要給予操作的身分組或成員">身分組或成員</span></div></article></div></section><section id="moderation" class="command-section"><div class="section-heading"><span class="section-icon"><i class="fa-solid fa-gavel"></i></span><div><h2>懲處管理</h2><p>依照實際程式指令整理，參數名稱以 Discord 指令選單為準。</p></div><span class="section-count">0 項</span></div><div class="command-grid"><article class="command-card" data-search="/停權 🛡️ 懲處管理 | 停權成員 成員 請輸入要停權的成員"><div class="command-card-top"><span class="command-name">/停權</span><span class="command-type">斜線指令</span></div><p class="command-desc">🛡️ 懲處管理 | 停權成員</p><div class="param-list"><span class="param-chip" title="請輸入要停權的成員">成員</span></div></article><article class="command-card" data-search="/全域封鎖 機器人作者專用 用戶 黑名單用戶 理由 黑名單理由"><div class="command-card-top"><span class="command-name">/全域封鎖</span><span class="command-type">斜線指令</span></div><p class="command-desc">機器人作者專用</p><div class="param-list"><span class="param-chip" title="黑名單用戶">用戶</span><span class="param-chip" title="黑名單理由">理由</span></div></article><article class="command-card" data-search="/禁言 🛡️ 懲處管理 | 禁言 成員 請輸入要禁言的成員 時間 輸入時間"><div class="command-card-top"><span class="command-name">/禁言</span><span class="command-type">斜線指令</span></div><p class="command-desc">🛡️ 懲處管理 | 禁言</p><div class="param-list"><span class="param-chip" title="請輸入要禁言的成員">成員</span><span class="param-chip" title="輸入時間">時間</span></div></article><article class="command-card" data-search="/解除全域封鎖 機器人作者專用 用戶 移出黑名單的用戶"><div class="command-card-top"><span class="command-name">/解除全域封鎖</span><span class="command-type">斜線指令</span></div><p class="command-desc">機器人作者專用</p><div class="param-list"><span class="param-chip" title="移出黑名單的用戶">用戶</span></div></article><article class="command-card" data-search="/踢出 🛡️ 懲處管理 | 踢出成員 成員 請輸入要踢出的成員"><div class="command-card-top"><span class="command-name">/踢出</span><span class="command-type">斜線指令</span></div><p class="command-desc">🛡️ 懲處管理 | 踢出成員</p><div class="param-list"><span class="param-chip" title="請輸入要踢出的成員">成員</span></div></article></div></section><section id="others" class="command-section"><div class="section-heading"><span class="section-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span><div><h2>一般工具</h2><p>依照實際程式指令整理，參數名稱以 Discord 指令選單為準。</p></div><span class="section-count">0 項</span></div><div class="command-grid"><article class="command-card" data-search="/刪除監測成員數系統 🌐 一般 | 刪除伺服器成員統計頻道與類別 "><div class="command-card-top"><span class="command-name">/刪除監測成員數系統</span><span class="command-type">斜線指令</span></div><p class="command-desc">🌐 一般 | 刪除伺服器成員統計頻道與類別</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/大量刪除訊息 🌐 一般 | 大量刪除訊息 數量 請輸入要刪除的訊息數量 使用者 請選擇要指定清理訊息的成員"><div class="command-card-top"><span class="command-name">/大量刪除訊息</span><span class="command-type">斜線指令</span></div><p class="command-desc">🌐 一般 | 大量刪除訊息</p><div class="param-list"><span class="param-chip" title="請輸入要刪除的訊息數量">數量</span><span class="param-chip" title="請選擇要指定清理訊息的成員">使用者</span></div></article><article class="command-card" data-search="/幫助 ❓ | 機器人指令清單 "><div class="command-card-top"><span class="command-name">/幫助</span><span class="command-type">斜線指令</span></div><p class="command-desc">❓ | 機器人指令清單</p><div class="param-list"><span class="param-chip">無參數</span></div></article><article class="command-card" data-search="/發送訊息 🌐 一般 | 發送訊息 訊息內容 發送的文字訊息內容"><div class="command-card-top"><span class="command-name">/發送訊息</span><span class="command-type">斜線指令</span></div><p class="command-desc">🌐 一般 | 發送訊息</p><div class="param-list"><span class="param-chip" title="發送的文字訊息內容">訊息內容</span></div></article><article class="command-card" data-search="/監測成員數系統 🌐 一般 | 建立伺服器成員統計頻道系統 模式 請選擇統計顯示的模式"><div class="command-card-top"><span class="command-name">/監測成員數系統</span><span class="command-type">斜線指令</span></div><p class="command-desc">🌐 一般 | 建立伺服器成員統計頻道系統</p><div class="param-list"><span class="param-chip" title="請選擇統計顯示的模式">模式</span></div></article></div></section><p class="command-footnote">注意：指令實際可用性會受機器人權限、伺服器設定及 Discord 指令同步狀態影響。</p></div></section>
 
     <footer class="bg-discord-darker py-10 border-t border-gray-800 mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -338,11 +122,19 @@
                 </div>
             </div>
             
-            <div class="flex gap-4">
-                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fa-brands fa-discord text-xl"></i>
-                </a>
-            </div>
+            
+<div class="flex items-center gap-3">
+  <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer"
+     class="footer-icon-link" aria-label="官方群組" title="官方群組">
+    <i class="fa-brands fa-discord"></i>
+  </a>
+  <a href="terms.html" class="footer-icon-link" aria-label="服務條款" title="服務條款">
+    <i class="fa-solid fa-file-contract"></i>
+  </a>
+  <a href="privacy.html" class="footer-icon-link" aria-label="隱私權政策" title="隱私權政策">
+    <i class="fa-solid fa-shield-halved"></i>
+  </a>
+</div>
         </div>
     </footer>
 
@@ -354,5 +146,6 @@
     </style>
 
     <script src="script.js"></script>
+<script id="mlb-command-enhancements">document.addEventListener('DOMContentLoaded',()=>{const input=document.getElementById('command-search');if(!input)return;const cards=[...document.querySelectorAll('.command-card')],sections=[...document.querySelectorAll('.command-section')],empty=document.getElementById('search-empty');function filter(){const q=input.value.trim().toLocaleLowerCase();let visible=0;cards.forEach(c=>{const yes=!q||(c.dataset.search||'').includes(q)||c.innerText.toLocaleLowerCase().includes(q);c.hidden=!yes;if(yes)visible++});sections.forEach(s=>{s.hidden=!s.querySelector('.command-card:not([hidden])')});empty.hidden=visible!==0;}input.addEventListener('input',filter);document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();input.focus()}if(e.key==='Escape'&&document.activeElement===input){input.value='';filter();input.blur()}});});</script>
 </body>
 </html>

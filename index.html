@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,88 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
+<style id="mlb-polish">
+:root{color-scheme:dark;--bg:#080b14;--panel:rgba(20,25,42,.66);--line:rgba(164,177,220,.15);--muted:#a7b0c8;--accent:#8b9cff;--accent2:#c2a6ff}html{scroll-padding-top:6rem}body{background:radial-gradient(ellipse at 12% -10%,rgba(88,101,242,.19),transparent 38%),radial-gradient(ellipse at 90% 16%,rgba(153,111,255,.10),transparent 30%),#080b14!important;color:#eef1ff;letter-spacing:.005em;line-height:1.75}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}nav{background:rgba(10,13,24,.72)!important;backdrop-filter:blur(22px) saturate(150%)!important;-webkit-backdrop-filter:blur(22px) saturate(150%)!important;border-bottom:1px solid var(--line)!important;box-shadow:0 8px 32px #0002}nav img{box-shadow:0 0 0 1px #ffffff20,0 0 28px #7888ff30}a,button{transition:color .2s ease,background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #9aa8ff;outline-offset:3px}h1,h2,h3{letter-spacing:-.035em;line-height:1.2}p{line-height:1.85}.bg-discord-darker,.bg-discord-dark{background:rgba(20,25,42,.62)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}.rounded-xl,.rounded-2xl{border-radius:1.15rem}.border-gray-700,.border-gray-800{border-color:var(--line)!important}.shadow-lg{box-shadow:0 18px 60px #0003}.text-gray-400{color:#a7b0c8!important}.hover\:border-discord\/50:hover{box-shadow:0 14px 38px #0003,0 0 0 1px #8b9cff30;transform:translateY(-2px)}section{scroll-margin-top:6rem}footer{border-color:var(--line)!important;background:rgba(8,11,20,.65)!important}::selection{background:#7988ff66;color:white}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#080b14}::-webkit-scrollbar-thumb{background:#303953;border:2px solid #080b14;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#6475ad}
+/* Commands page */
+.commands-hero{position:relative;overflow:hidden;padding:10rem 1.5rem 4.5rem;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(22,28,51,.78),rgba(9,12,24,.6))}.hero-content{max-width:1100px;margin:auto;position:relative;z-index:2}.eyebrow{display:inline-flex;align-items:center;gap:.65rem;color:#b8c2ff;font-size:.72rem;font-weight:800;letter-spacing:.18em}.live-dot{width:7px;height:7px;border-radius:50%;background:#8ef0c0;box-shadow:0 0 14px #8ef0c0;animation:pulse-dot 2s infinite}.commands-hero h1{font-size:clamp(2.7rem,7vw,5.7rem);font-weight:900;letter-spacing:-.075em;margin:1.1rem 0}.commands-hero h1 span{background:linear-gradient(100deg,#9baaff,#d4b6ff 60%,#f2d7ff);background-clip:text;-webkit-background-clip:text;color:transparent}.commands-hero p{max-width:650px;color:var(--muted);font-size:clamp(1rem,2vw,1.2rem)}.hero-orb{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}.orb-one{width:360px;height:360px;right:8%;top:-160px;background:radial-gradient(circle,#7c8cff30,transparent 68%)}.orb-two{width:280px;height:280px;right:35%;bottom:-220px;background:radial-gradient(circle,#c29cff20,transparent 70%)}.hero-stats{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}.hero-stats div{min-width:115px;padding:.8rem 1rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);backdrop-filter:blur(12px)}.hero-stats strong,.hero-stats span{display:block}.hero-stats strong{font-size:1.6rem;line-height:1.2}.hero-stats span{font-size:.78rem;color:var(--muted);margin-top:.25rem}.commands-layout{max-width:1400px;margin:auto;padding:3rem 1.5rem 6rem;display:grid;grid-template-columns:235px minmax(0,1fr);gap:2rem;align-items:start}.command-sidebar{position:sticky;top:6rem;padding:1.1rem;border:1px solid var(--line);border-radius:20px;background:rgba(17,22,38,.65);backdrop-filter:blur(22px)}.sidebar-title{font-size:.75rem;color:#e4e8ff;font-weight:800;letter-spacing:.08em;margin:.2rem .6rem 1rem;display:flex;justify-content:space-between}.sidebar-title span{color:#7f8bad;font-size:.65rem}.command-sidebar>a{display:flex;gap:.7rem;align-items:center;padding:.7rem .75rem;border-radius:11px;color:#b6bfd6;font-size:.88rem}.command-sidebar>a:hover{background:#8797ff16;color:#dfe4ff;transform:translateX(3px)}.command-sidebar>a i{width:18px;color:#9baaff}.sidebar-tip{border-top:1px solid var(--line);margin-top:1rem;padding:1rem .5rem .2rem;color:#a9b4d1;font-size:.78rem;line-height:1.7}.sidebar-tip i{color:#c3b0ff}.sidebar-tip p{margin:.4rem 0}.commands-content{min-width:0}.command-search-wrap{display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem;border:1px solid var(--line);border-radius:15px;background:rgba(19,24,41,.72);backdrop-filter:blur(20px);box-shadow:0 10px 35px #0002;margin-bottom:2.4rem}.command-search-wrap>i{color:#9baaff}.command-search-wrap input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#f1f3ff;font:inherit;font-size:.95rem}.command-search-wrap input::placeholder{color:#7f8aa8}.command-search-wrap kbd{white-space:nowrap;color:#8994b2;font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:.2rem .4rem}.command-section{margin:0 0 3.5rem;scroll-margin-top:6.5rem}.section-heading{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}.section-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid #9aaaff28;border-radius:14px;color:#b0bcff;background:linear-gradient(135deg,#8495ff1c,#c49cff12);font-size:1.1rem}.section-heading h2{font-size:1.45rem;font-weight:800;margin:0}.section-heading p{font-size:.8rem;color:#8e9ab8;margin:.35rem 0 0}.section-count{margin-left:auto;border:1px solid var(--line);padding:.3rem .6rem;border-radius:8px;color:#aeb9da;font-size:.75rem;white-space:nowrap}.command-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.command-card{min-width:0;padding:1.15rem 1.2rem 1.2rem;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,rgba(27,33,54,.78),rgba(14,18,32,.74));backdrop-filter:blur(16px);box-shadow:0 12px 30px #00000012;transition:transform .25s,border-color .25s,box-shadow .25s}.command-card:hover{transform:translateY(-3px);border-color:#9baaff55;box-shadow:0 18px 42px #0003,0 0 30px #8395ff0b}.command-card-top{display:flex;align-items:center;justify-content:space-between;gap:.7rem;flex-wrap:wrap}.command-name{font:700 1.05rem ui-monospace,SFMono-Regular,Menlo,monospace;color:#b9c4ff;overflow-wrap:anywhere}.command-type{font-size:.65rem;color:#aab5d3;background:#ffffff07;border:1px solid var(--line);border-radius:99px;padding:.18rem .5rem;white-space:nowrap}.command-desc{font-size:.86rem;color:#aab4cc;margin:.7rem 0 .9rem;line-height:1.8}.param-list{display:flex;flex-wrap:wrap;gap:.4rem}.param-chip{font-size:.72rem;color:#d2d8f0;background:rgba(137,151,255,.09);border:1px solid rgba(137,151,255,.18);border-radius:7px;padding:.22rem .5rem;cursor:help}.syntax{display:block;overflow-wrap:anywhere;white-space:pre-wrap;margin-top:.85rem;padding:.65rem .75rem;border-radius:9px;border:1px solid var(--line);background:rgba(4,7,15,.45);color:#c5d0f4;font-size:.76rem;line-height:1.65}.command-footnote{font-size:.8rem;color:#8591ad;border-top:1px solid var(--line);padding-top:1.3rem}.command-footnote code{color:#bdc7ff}.search-empty{padding:2rem;text-align:center;border:1px dashed var(--line);border-radius:14px;color:#aab4cc;margin-bottom:2rem}
+@keyframes pulse-dot{50%{opacity:.5;box-shadow:0 0 4px #8ef0c0}}@media(max-width:900px){.commands-layout{grid-template-columns:1fr}.command-sidebar{position:relative;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2rem}.sidebar-title,.sidebar-tip{grid-column:1/-1}.command-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.commands-hero{padding:8.5rem 1.1rem 3rem}.commands-layout{padding:1.5rem 1rem 4rem}.command-grid{grid-template-columns:1fr}.command-sidebar{grid-template-columns:1fr 1fr}.command-sidebar>a{font-size:.8rem;padding:.65rem .55rem}.command-search-wrap kbd{display:none}.section-heading{gap:.7rem}.section-heading h2{font-size:1.2rem}.section-heading p{font-size:.74rem}.section-count{font-size:.68rem}.hero-stats{gap:.6rem}.hero-stats div{flex:1;min-width:85px;padding:.7rem}.command-card{padding:1rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+<style id="commands-page-theme">
+
+/* Unified page rendering: follows the Commands page visual system */
+:root{--mlb-line:rgba(164,177,220,.15);--mlb-muted:#a7b0c8;--mlb-accent:#9baaff}
+body{background:radial-gradient(ellipse at 12% -10%,rgba(88,101,242,.19),transparent 38%),radial-gradient(ellipse at 90% 16%,rgba(153,111,255,.10),transparent 30%),#080b14!important;color:#eef1ff!important}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+nav{background:rgba(10,13,24,.78)!important;backdrop-filter:blur(22px) saturate(150%)!important;-webkit-backdrop-filter:blur(22px) saturate(150%)!important;border-bottom:1px solid var(--mlb-line)!important;box-shadow:0 8px 32px #0002}
+nav img{box-shadow:0 0 0 1px #ffffff20,0 0 28px #7888ff30}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.2}
+a,button{transition:color .2s ease,background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #9aa8ff;outline-offset:3px}
+.bg-discord-darker,.bg-discord-dark{background:rgba(20,25,42,.62)!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.border-gray-700,.border-gray-800{border-color:var(--mlb-line)!important}
+.text-gray-400{color:var(--mlb-muted)!important}
+.rounded-xl,.rounded-2xl{border-radius:1.15rem}
+.shadow-lg{box-shadow:0 18px 60px #0003}
+footer{border-color:var(--mlb-line)!important;background:rgba(8,11,20,.72)!important}
+::selection{background:#7988ff66;color:white}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#080b14}::-webkit-scrollbar-thumb{background:#303953;border:2px solid #080b14;border-radius:10px}
+/* Home and FAQ hero areas */
+body>section:first-of-type{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--mlb-line);background:linear-gradient(135deg,rgba(22,28,51,.78),rgba(9,12,24,.6))!important}
+body>section:first-of-type h1{font-size:clamp(2.7rem,7vw,5.4rem);font-weight:900;letter-spacing:-.075em}
+body>section:first-of-type h1 span{background:linear-gradient(100deg,#9baaff,#d4b6ff 60%,#f2d7ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+body>section:first-of-type p{color:var(--mlb-muted)}
+/* Content panels and feature cards */
+article,.bg-discord-darker.border,.bg-discord-dark.border{background:linear-gradient(145deg,rgba(27,33,54,.78),rgba(14,18,32,.74))!important;border:1px solid var(--mlb-line)!important;backdrop-filter:blur(16px);box-shadow:0 16px 45px #0002}
+article h2,article h3{color:#e5eaff}
+article hr{border-color:var(--mlb-line)!important}
+article h2.border-b,article h2.pb-3{border-color:var(--mlb-line)!important}
+article h3{color:#c5ceff!important}
+section .grid>div,section .grid>a,.group{border-color:var(--mlb-line)}
+section .grid>div:hover,section .grid>a:hover{transform:translateY(-3px);border-color:#9baaff55;box-shadow:0 18px 42px #0003}
+input,select,textarea{background:rgba(4,7,15,.55)!important;border-color:var(--mlb-line)!important;color:#eef1ff!important;border-radius:10px}
+button.bg-discord,a.bg-discord{background:linear-gradient(110deg,#6678f5,#8b78ed)!important;box-shadow:0 8px 25px #7888ff25}
+button.bg-discord:hover,a.bg-discord:hover{filter:brightness(1.1);transform:translateY(-1px)}
+/* Legal pages */
+main>section>div:first-child{position:relative}
+main>section>div:first-child>div:first-child{box-shadow:0 0 35px #7888ff18}
+main>section>article{max-width:100%;border-radius:22px!important}
+main>section>article p,main>section>article li{color:#b8c2d9!important}
+@media(max-width:700px){body>section:first-of-type h1{font-size:clamp(2.35rem,11vw,3.5rem)}main>section>article{padding:1.25rem!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+</style>
+<style>
+/* Shared page polish */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(88,101,242,.17),transparent 34%),
+    radial-gradient(ellipse at 88% 28%,rgba(139,92,246,.12),transparent 32%),
+    radial-gradient(ellipse at 50% 100%,rgba(56,189,248,.07),transparent 38%);
+}
+.page-title{
+  font-size:clamp(2.7rem,6vw,4.8rem)!important;
+  line-height:1.08!important;font-weight:900!important;letter-spacing:-.055em!important;
+  background:linear-gradient(110deg,#fff 8%,#c7d2fe 48%,#818cf8 78%,#a78bfa);
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  text-shadow:0 12px 48px rgba(88,101,242,.16);
+  animation:pageTitleIn .75s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes pageTitleIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.footer-icon-link{
+  width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(148,163,184,.2);border-radius:14px;
+  color:#a7b0c8;background:rgba(255,255,255,.035);
+  transition:transform .22s ease,color .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.footer-icon-link i{font-size:17px}
+.footer-icon-link:hover{transform:translateY(-4px);color:#fff;border-color:rgba(129,140,248,.7);
+  background:rgba(88,101,242,.18);box-shadow:0 10px 28px rgba(88,101,242,.2)}
+nav a{transition:color .2s ease,background .2s ease,transform .2s ease}
+article,.faq-item,.feature-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box-shadow:0 18px 48px rgba(0,0,0,.22)}
+@media(prefers-reduced-motion:reduce){.page-title,*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style></head>
 <body class="bg-discord-darkest text-white font-sans antialiased">
 
     <nav class="fixed w-full z-50 bg-discord-darker/80 backdrop-blur-md border-b border-gray-700">
@@ -45,7 +126,7 @@
                         <a href="#features" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">功能介紹</a>
                         <a href="commands.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">指令列表</a>
                         <a href="faq.html" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">常見問題</a>
-                        <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">服務表單</a>
+                        <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer" class="hover:text-discord transition-colors px-3 py-2 rounded-md text-sm font-medium">官方群組</a>
                         <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="bg-discord hover:bg-discord-hover text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-lg shadow-discord/30">
                             邀請機器人
                         </a>
@@ -63,7 +144,7 @@
                 <a href="#features" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">功能介紹</a>
                 <a href="commands.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">指令列表</a>
                 <a href="faq.html" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">常見問題</a>
-                <a href="https://forms.gle/61rgie3cZBqKnKPu5" target="_blank" rel="noopener" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">服務表單</a>
+                <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer" class="block hover:bg-discord-dark hover:text-white px-3 py-2 rounded-md text-base font-medium">官方群組</a>
                 <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="block bg-discord text-center mt-4 px-3 py-2 rounded-md text-base font-medium">邀請機器人</a>
             </div>
         </div>
@@ -74,7 +155,7 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-discord/20 rounded-full blur-[120px] pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-lg animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 drop-shadow-lg animate-fade-in-up page-title">
                 最強大的 <span class="text-discord">Discord 成員名單</span> 管理工具
             </h1>
             <p class="mt-4 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.1s;">
@@ -207,11 +288,19 @@
                 </div>
             </div>
             
-            <div class="flex gap-4">
-                <a href="https://discord.com/oauth2/authorize?client_id=1524630634826432673&permissions=8&integration_type=0&scope=bot+applications.commands" class="text-gray-400 hover:text-white transition-colors">
-                    <i class="fa-brands fa-discord text-xl"></i>
-                </a>
-            </div>
+            
+<div class="flex items-center gap-3">
+  <a href="https://discord.gg/XM75YUtWc5" target="_blank" rel="noopener noreferrer"
+     class="footer-icon-link" aria-label="官方群組" title="官方群組">
+    <i class="fa-brands fa-discord"></i>
+  </a>
+  <a href="terms.html" class="footer-icon-link" aria-label="服務條款" title="服務條款">
+    <i class="fa-solid fa-file-contract"></i>
+  </a>
+  <a href="privacy.html" class="footer-icon-link" aria-label="隱私權政策" title="隱私權政策">
+    <i class="fa-solid fa-shield-halved"></i>
+  </a>
+</div>
         </div>
     </footer>
 
