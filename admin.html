@@ -571,7 +571,14 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                 return rgbToHex(r*(1-amt/100), g*(1-amt/100), b*(1-amt/100));
             }
 
-            // 渲染伺服器列表 (方法一：依據後端 API 回傳的 inviteUrl 顯示連結)
+            // 修正圖標網址重複問題
+            function fixIconUrl(url) {
+                if (!url) return null;
+                const match = url.match(/(https:\/\/cdn\.discordapp\.com\/icons\/[^\?]+)/);
+                return match ? match[1] : url;
+            }
+
+            // 渲染伺服器列表
             function renderGuilds(guilds) {
                 const container = document.getElementById('guilds-container');
                 if (!guilds || guilds.length === 0) {
@@ -610,11 +617,12 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                     ].join(' ');
 
                     let iconEl;
-                    if (g.icon) {
+                    const cleanIcon = fixIconUrl(g.icon);
+                    if (cleanIcon) {
                         iconEl = document.createElement('div');
                         iconEl.className = 'relative flex-shrink-0';
                         const img = document.createElement('img');
-                        img.src = g.icon;
+                        img.src = cleanIcon;
                         img.alt = (g.name || 'server') + ' icon';
                         img.className = 'w-14 h-14 rounded-full object-cover ring-2 ring-black/50 shadow-md bg-discord-dark';
                         img.loading = 'lazy';
@@ -677,19 +685,21 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                 container.innerHTML = `
                     <div class="col-span-full text-center py-12 text-gray-400">
                         <i class="fa-solid fa-spinner fa-spin text-3xl mb-3"></i>
-                        <p>正在載入伺服器資料...</p>
+                        <p>正在從 WispByte 伺服器載入資料...</p>
                     </div>`;
                 document.getElementById('stat-guilds').textContent = '--';
                 document.getElementById('stat-members').textContent = '--';
                 document.getElementById('stat-ping').textContent = '--';
                 updatePingBadge(null);
 
+                const API_BASE = 'http://78.154.103.16:16678';
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 10000);
+                const timeoutId = setTimeout(() => controller.abort(), 12000);
+
                 try {
                     const signal = controller.signal;
-                    const statusPromise = fetch('https://member-list-bot-gakf.onrender.com/api/status', { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
-                    const guildsPromise = fetch('https://member-list-bot-gakf.onrender.com/api/guilds', { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
+                    const statusPromise = fetch(`${API_BASE}/api/status`, { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
+                    const guildsPromise = fetch(`${API_BASE}/api/guilds`, { signal }).then(r => r.ok ? r.json() : null).catch(() => null);
                     const [statusData, guildsRaw] = await Promise.all([statusPromise, guildsPromise]);
                     clearTimeout(timeoutId);
 
@@ -709,7 +719,6 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                                 name: item.name || item.guildName || item.guild_name || '未命名伺服器',
                                 icon: item.icon || item.iconUrl || item.icon_url || null,
                                 memberCount: item.memberCount ?? item.member_count ?? item.approximateMemberCount ?? item.members ?? 0,
-                                // 純純讀取後端 API 回傳的 inviteUrl 欄位
                                 inviteUrl: item.inviteUrl || item.invite_url || item.invite || item.vanityUrl || item.vanity_url || null
                             }));
                             guildCount = guilds.length;
@@ -728,12 +737,12 @@ article:hover,.faq-item:hover,.feature-card:hover{transform:translateY(-3px);box
                         renderError('無法從伺服器列表 /api/guilds 取得有效資料');
                     }
                     if (ping == null && guilds == null) {
-                        renderError('後端 API 無回應，請確認 Render 伺服器是否正常啟動 /api/status 與 /api/guilds 端點');
+                        renderError('WispByte 後端 API 無回應，請確認 78.154.103.16:16678 是否正常啟動 /api/status 與 /api/guilds 端點');
                     }
                 } catch (e) {
                     clearTimeout(timeoutId);
                     console.error(e);
-                    renderError('網路或連線異常：' + (e && e.message ? e.message : '請稍後再試'));
+                    renderError('連線異常：' + (e && e.name === 'AbortError' ? '請求逾時，請再試一次' : (e.message || '請稍後再試')));
                 }
             }
 
